@@ -1,0 +1,23 @@
+{%  extends 'base.html' %}
+
+
+{% block title %} Create {% endblock %}
+
+{% block heading%}Create{% endblock %}
+{% block subheading %}Snippet{% endblock %}
+{% block path %}Create{% endblock %}
+
+{% block content %}
+    <form action="/snips/create/" method="post" >
+    {% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+        <input type="submit" value="Create" id="submit" />
+    </form>
+
+{% endblock %}
+
+{% block dash %}active{% endblock %}
+{% block snip %}treeview{% endblock %}
+{% block lang %}treeview{% endblock %}

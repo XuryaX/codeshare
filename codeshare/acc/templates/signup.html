@@ -1,0 +1,11 @@
+{% extends 'accbase.html' %}
+
+{% block content %}
+    <h2>Register</h2>
+    <form action="/acc/signup/" method="post">{% csrf_token %}
+        <ul>
+        {{ form.as_ul }}
+        </ul>
+        <input type="submit" value="Signup Now!!" />
+    </form>
+{% endblock %}

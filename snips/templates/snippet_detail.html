@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ snip.title }} - Snippets {% endblock %}
+
+{% block heading%}{{ snip.title }}{% endblock %}
+{% block subheading %}CODE{% endblock %}
+{% block path %}SnippetList&nbsp; > &nbsp;{{ snip.title }}{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/pygments.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% autoescape off %}
+        <h2>{{ snip.title }}</h2>
+        <p>{{ snip.description_html }}</p>
+        <p>Code:</p>
+        <p>{{ snip.high_code }}</p>
+    {% endautoescape %}
+{% endblock %}

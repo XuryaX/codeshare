@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Snippets {% endblock %}
+
+{% block heading%}Snippets{% endblock %}
+{% block subheading %}List{% endblock %}
+{% block path %}SnippetList{% endblock %}
+
+{% block content %}
+    {% if lang %}
+        <h2>{{ lang }}</h2>
+    {% endif %}
+    <ul>
+     {% for snip in snips %}
+         <li><a href="/snips/get/{{ snip.id }}/" >{{ snip }}</a></li>
+     {% endfor %}
+    </ul>
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if snips.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ snips.number }} of {{ snips.paginator.num_pages }}.
+        </span>
+
+        {% if snips.has_next %}
+            <a href="?page={{ snips.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
+
+{% block dash %}treeview{% endblock %}
+{% block snip %}active{% endblock %}
+{% block lang %}treeview{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Snippets {% endblock %}
+
+{% block heading%}Language{% endblock %}
+{% block subheading %}Snippets{% endblock %}
+{% block path %}Languages{% endblock %}
+
+{% block content %}
+    <ul>
+    {% for lang in language %}
+    <li><a href="/lang/get/{{ lang.slug }}/" >{{ lang }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block dash %}treeview{% endblock %}
+{% block snip %}treeview{% endblock %}
+{% block lang %}active{% endblock %}

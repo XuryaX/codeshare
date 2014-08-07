@@ -1,0 +1,17 @@
+{% extends 'accbase.html' %}
+
+{% block content %}
+    {% if invalid %}
+        <p class="errors"> Invalid Username/Password</p>
+    {% endif %}
+
+    <form action="/login/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <input type="submit">
+    </form>
+
+    <p><a href="/signup/" >Signup Now</a></p>
+
+{% endblock %}

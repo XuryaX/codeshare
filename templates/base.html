@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %} - CodeShare</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="{% static "css/bootstrap.min.css"%}" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="{% static "css/font-awesome.min.css"%}" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="{% static "css/ionicons.min.css"%}" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="{% static "css/AdminLTE.css"%}" rel="stylesheet" type="text/css" />
+        <!-- Page Specific Styles -->
+        {% block styles %}{% endblock %}
+
+    </head>
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="/" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                CodeShare
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+
+
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">                
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="{% static "img/avatar5.png" %}" class="img-circle" alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p>Hello, {{ name }}</p>
+                            <br />
+                            <p><a href="/logout/"> Logout</a></p>
+                        </div>
+                    </div>
+                    <!-- search form -->
+
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="{%block dash  %}treeview{% endblock %}">
+                            <a href="/">
+                                <i class="fa fa-dashboard"></i> <span>Create</span>
+                            </a>
+                        </li>
+                        <li class="{%block snip  %}treeview{% endblock %}">
+                            <a href="/snips/">
+                                <i class="fa fa-edit"></i> <span>Snippets</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                        </li>
+                        <li class="{%block lang %}treeview{% endblock %}">
+                            <a href="/lang/">
+                                <i class="fa fa-folder"></i> <span>Languages</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+						</li>
+
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        {% block heading %} {% endblock %}
+                        <small>{% block subheading %} {% endblock %}</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">{% block path %} {% endblock %}</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    {% block content %}
+                    {% endblock %}
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+    </body>
+</html>
